@@ -42,67 +42,127 @@ const ThirdPartyRegistryList = () => {
       <div className="bg-gray-50 min-h-full">
         <Header subtitle="Third Party Modules" />
         <div className="">
+          <div className="max-w-screen-xl mx-auto pt-4 pb-16 sm:pt-8 sm:pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
+            <div className="pt-10">
+              <dl className="md:grid md:grid-cols-2 md:gap-8">
+                <div>
+                  <div>
+                    <dt className="text-lg leading-6 font-medium text-gray-900">
+                      What is deno.land/x?
+                    </dt>
+                    <dd className="mt-2">
+                      <p className="text-base leading-6 text-gray-500">
+                        <span className="font-semibold">deno.land/x</span> is a
+                        URL rewriting service (or URL shortner) for Deno
+                        scripts. It does not host files itself, it just serves
+                        them from services like GitHub under one common domain.
+                      </p>
+                    </dd>
+                  </div>
+                  <div className="mt-12">
+                    <dt className="text-lg leading-6 font-medium text-gray-900">
+                      How do I use deno.land/x?
+                    </dt>
+                    <dd className="mt-2">
+                      <p className="text-base leading-6 text-gray-500 break-words">
+                        The basic format of code URLs is
+                        <InlineCode>
+                          https://deno.land/x/IDENTIFIER@VERSION/FILE_PATH
+                        </InlineCode>
+                        . If you leave out the version, it will be defaulted to
+                        the module’s default branch, usually{" "}
+                        <InlineCode>master</InlineCode>.
+                      </p>
+                    </dd>
+                  </div>
+                  <div className="mt-12">
+                    <dt className="text-lg leading-6 font-medium text-gray-900">
+                      How do I add a module to deno.land/x?
+                    </dt>
+                    <dd className="mt-2">
+                      <p className="text-base leading-6 text-gray-500">
+                        To add to this list, edit{" "}
+                        <a
+                          href="https://github.com/denoland/deno_website2/blob/master/database.json"
+                          className="link"
+                        >
+                          database.json
+                        </a>
+                        {". "}
+                        Run the tests and formatting before submitting a patch -
+                        the PR must be green to be considered.{" "}
+                      </p>
+                    </dd>
+                  </div>
+                </div>
+                <div className="mt-12 md:mt-0">
+                  <div>
+                    <dt
+                      className="text-lg leading-6 font-medium text-gray-900"
+                      id="warning"
+                    >
+                      I am getting a warning when importing from deno.land/x!
+                    </dt>
+                    <dd className="mt-2">
+                      <p className="text-base leading-6 text-gray-500">
+                        deno.land/x warns you when you are implicitly importing
+                        from the default branch of a module (when you do not
+                        explicitly specify version). This is because it can{" "}
+                        <a href="" className="link">
+                          be unsafe to not tag dependencies
+                        </a>
+                        . To get rid of the warning, explicitly specify a branch
+                        or version.
+                      </p>
+                    </dd>
+                  </div>
+                  <div className="mt-12">
+                    <dt className="text-lg leading-6 font-medium text-gray-900">
+                      Can I find functionality built-in to Deno here?
+                    </dt>
+                    <dd className="mt-2">
+                      <p className="text-base leading-6 text-gray-500">
+                        No, the built-in runtime is documented on{" "}
+                        <a className="link" href="https://doc.deno.land/">
+                          deno doc
+                        </a>{" "}
+                        and in the manual. See{" "}
+                        <Link href="/[identifier]" as="/std">
+                          <a className="link">/std</a>
+                        </Link>{" "}
+                        for the standard modules.
+                      </p>
+                    </dd>
+                  </div>
+                  <div className="mt-12">
+                    <dt className="text-lg leading-6 font-medium text-gray-900">
+                      Do I need to add my module to the list to use deno.land/x?
+                    </dt>
+                    <dd className="mt-2">
+                      <p className="text-base leading-6 text-gray-500">
+                        [Experimental]: No, you can use the special module
+                        identifiers <InlineCode>gh:[owner]:[repo]</InlineCode>{" "}
+                        and <InlineCode>npm:[package]</InlineCode> to import
+                        from any GitHub repository or NPM package.
+                      </p>
+                    </dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
+          </div>
           <div className="max-w-screen-lg mx-auto px-4 sm:px-6 md:px-8 pt-4">
-            <div className="text-gray-900 mt-4 sm:mt-8 break-words">
-              <p className="text-gray-900 mt-4">
-                <span className="font-semibold">deno.land/x</span> is a URL
-                rewriting service for Deno scripts. The basic format of code
-                URLs is{" "}
-                <InlineCode>
-                  https://deno.land/x/MODULE_NAME@BRANCH/SCRIPT.ts
-                </InlineCode>
-                . If you leave out the branch, it will default to the module’s
-                default branch, usually <InlineCode>master</InlineCode>.
-              </p>
-
-              <p className="text-gray-900 mt-4">
-                Experimental: Use <InlineCode>npm:[package]</InlineCode> or
-                <InlineCode>gh:[owner]:[repo]</InlineCode> as module name to
-                resolve any artibrary repository or npm package.
-              </p>
-
-              <p className="text-gray-900 mt-4">
-                Functionality built-in to Deno is not listed here. The built-in
-                runtime is documented on{" "}
-                <a href="https://doc.deno.land" className="link">
-                  deno doc
-                </a>{" "}
-                and in{" "}
-                <Link href="/[identifier]" as="/manual">
-                  <a className="link">the manual</a>
-                </Link>
-                . See{" "}
-                <Link href="/[identifier]" as="/std">
-                  <a className="link">/std</a>
-                </Link>{" "}
-                for the standard modules.
-              </p>
-              <p className="text-gray-900 mt-4">
-                To add to this list, edit{" "}
-                <a
-                  href="https://github.com/denoland/deno_website2/blob/master/database.json"
-                  className="link"
-                >
-                  database.json
-                </a>
-                {". "}
-                Run the tests and formatting before submitting a patch - the PR
-                must be green to be considered.
-              </p>
-            </div>
-            <div className="mt-12">
-              <label htmlFor="query" className="font-medium sr-only">
-                Search
-              </label>
-              <input
-                id="query"
-                className="block w-full px-4 py-2 leading-normal bg-white border border-gray-200 rounded-lg outline-none shadow hover:shadow-sm focus:shadow-sm appearance-none focus:border-gray-300 hover:border-gray-300 mt-1"
-                type="text"
-                placeholder="Search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </div>
+            <label htmlFor="query" className="font-medium sr-only">
+              Search
+            </label>
+            <input
+              id="query"
+              className="block w-full px-4 py-2 leading-normal bg-white border border-gray-200 rounded-lg outline-none shadow hover:shadow-sm focus:shadow-sm appearance-none focus:border-gray-300 hover:border-gray-300 mt-1"
+              type="text"
+              placeholder="Search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
           </div>
           <div className="sm:max-w-screen-lg sm:mx-auto sm:px-6 md:px-8 pb-4 sm:pb-12">
             {list.length == 0 ? (

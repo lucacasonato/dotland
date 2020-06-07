@@ -16,7 +16,7 @@ export async function handleRegistryRequest(url: URL): Promise<Response> {
   if (needsWarning(url.pathname)) {
     response.headers.set(
       "X-Deno-Warning",
-      `Implicitly using master branch ${url}`
+      `Implicitly using master branch for ${url}. More info at https://deno.land/x`
     );
   }
   const originContentType = response.headers.get("content-type");
