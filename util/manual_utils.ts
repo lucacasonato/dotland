@@ -1,4 +1,4 @@
-const basepath = "https://raw.githubusercontent.com/denoland/deno/";
+const basepath = "/deno/";
 const docpath = "https://github.com/denoland/deno/blob/";
 
 export interface TableOfContents {

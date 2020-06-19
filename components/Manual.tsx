@@ -123,22 +123,27 @@ function Manual() {
 
   useEffect(() => {
     setContent(null);
-    fetch(sourceURL)
-      .then((res) => {
-        if (res.status !== 200) {
-          throw Error(
-            `Got an error (${res.status}) while getting the documentation file.`
-          );
-        }
-        return res.text();
-      })
-      .then(setContent)
-      .catch((e) => {
-        console.error("Failed to fetch content:", e);
-        setContent(
-          "# 404 - Not Found\nWhoops, the page does not seem to exist."
-        );
-      });
+    const t = setInterval(
+      () =>
+        fetch(sourceURL)
+          .then((res) => {
+            if (res.status !== 200) {
+              throw Error(
+                `Got an error (${res.status}) while getting the documentation file.`
+              );
+            }
+            return res.text();
+          })
+          .then(setContent)
+          .catch((e) => {
+            console.error("Failed to fetch content:", e);
+            setContent(
+              "# 404 - Not Found\nWhoops, the page does not seem to exist."
+            );
+          }),
+      500
+    );
+    return () => clearInterval(t);
   }, [sourceURL]);
 
   useEffect(() => {
