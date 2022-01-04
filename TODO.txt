@@ -1,0 +1,8 @@
+- [ ] Layout shell
+- [ ] Home page
+- [ ] Artwork page
+- [ ] Benchmarks page
+- [ ] Translations page
+- [ ] Manual pages
+- [ ] /std and /x module browser
+- [ ] serve /std and /x module code
